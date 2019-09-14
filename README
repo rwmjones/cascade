@@ -1,0 +1,72 @@
+CASCADE (C) 1997-1998 Richard W.M. Jones (rich@annexia.demon.co.uk)
+
+From an original idea by ...? It comes from a DOS program
+that I owned years ago. The fact that it was a DOS program
+means it must have been at least 10 years ago. If anyone
+can remember who first wrote this game, I'll put them in
+the credits here.
+
+Compiling and installing
+------------------------
+
+1) Edit the Makefile, if you're not using a Linux system.
+
+2) Type:
+    make
+
+3) If all went well, install the cascade binary by hand, eg:
+    cp cascade /usr/local/games
+
+Running
+-------
+
+Cascade starts with a board the same size as your window. Large
+xterms produce games that are actually too hard to play. So
+for first time players, and quick games, try:
+
+    xterm -geometry 60x25 -fn '-adobe-courier-medium-r-*-*-24-*' -e cascade
+
+Not implemented
+---------------
+
+The Internet play option is not yet implemented! There's a
+quick project for someone.
+
+Difficulty levels 4 and 5 are not yet implemented! They are
+intended so that the computer actually looks more than
+one move ahead. See `machine.c'.
+
+Rules
+-----
+
+Remove the letters. Each time you type a letter (or number),
+all those letters on the board disappear. The balls (bold
+`o's) fall down through the remaining letters.
+
+If a ball hits a `-' (minus) sign, then the negate flag is
+toggled on or off.
+
+If a ball hits a `*' (double) sign, then the double flag is
+toggled on or off.
+
+If a ball hits a `$' (bonus) sign, then you score:
+
+    +8	if double is on
+    +4	if neither double nor negate is on
+    -4	if negate is on
+    -8	if both double and negate are on
+
+When balls reach the bottom, they fall into your score bucket.
+Your bucket is on the left, the computer's bucket is on the
+right. For each ball you get, you score:
+
+    +2	if double is on
+    +1	if neither double nor negate is on
+    -1	if negate is on
+    -2	if both double and negate are on
+
+I think you get the idea now, no? Good players toggle the double
+flag, get as many balls and bonuses as possible and leave
+the double AND negate flags on at the end of their turn. If
+you set the computer's play level to 3, then it will do
+just that on every turn, making it a formidable opponent.
