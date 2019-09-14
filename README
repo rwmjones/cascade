@@ -22,9 +22,8 @@ Running
 
 Cascade starts with a board the same size as your window. Large
 xterms produce games that are actually too hard to play. So
-for first time players, and quick games, try:
-
-    xterm -geometry 60x25 -fn '-adobe-courier-medium-r-*-*-24-*' -e cascade
+for first time players, and quick games, try setting your
+terminal size to 60x25 with a large font.
 
 Not implemented
 ---------------
