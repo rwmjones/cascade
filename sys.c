@@ -10,14 +10,9 @@
 void
 short_delay (int speed)
 {
-#if defined(linux) && !defined(__PPC__)
   struct timespec t;
 
-  /* Sleep for approximately 1/20th second. */
   t.tv_sec = 0;
-  t.tv_nsec = 5000000 / speed;
+  t.tv_nsec = 10 * 1000000 / speed;
   nanosleep (&t, NULL);
-#else
-  usleep (40000 / speed);
-#endif
 }
