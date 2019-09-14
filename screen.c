@@ -243,7 +243,8 @@ init_screen (void)
   getmaxyx (stdscr, height, width);
 
   if (height < 24 || width < 60)
-    fatal ("screen or window not large enough to play game");
+    fatal ("screen or window not large enough to play game\n"
+           "height must be >= 25 and width >= 60");
 }
 
 void
