@@ -230,6 +230,7 @@ init_screen (void)
   nonl ();
   intrflush (stdscr, FALSE);
   keypad (stdscr, TRUE);
+  curs_set (0);
 
   /* Check that screen starts at (0,0) */
   {
