@@ -25,8 +25,8 @@ static void picked_letter (state *, int);
 static void connect_dialog (void);
 static void end_of_game_dialog (void);
 
-void
-main ()
+int
+main (void)
 {
   /* Initialize PRNG. */
   srand (time (NULL));
