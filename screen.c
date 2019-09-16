@@ -110,6 +110,12 @@ draw_screen (state *s)
 static inline void
 display_board_char (char c)
 {
+  start_color();
+  init_pair(1, COLOR_GREEN, COLOR_BLACK);  // $$$ (Bonus)
+  init_pair(2, COLOR_CYAN, COLOR_BLACK);   // *** (Double)
+  init_pair(3, COLOR_RED, COLOR_BLACK);    // --- (Negate)
+  init_pair(4, COLOR_YELLOW, COLOR_BLACK); // The balls 'o'
+
   switch (c)
     {
     case BD_EMPTY: addch (' ');
@@ -118,13 +124,13 @@ display_board_char (char c)
       break;
     case BD_BRICK: attron (REVERSE); addch (' '); attroff (REVERSE);
       break;
-    case BD_BALL:  attron (BOLD); addch ('o'); attroff (BOLD);
+    case BD_BALL:  attron (BOLD); attron(COLOR_PAIR(4)); addch ('o'); attroff (BOLD); attroff(COLOR_PAIR(4));
       break;
-    case BD_NEGATE:attron (BOLD); addch ('-'); attroff (BOLD);
+    case BD_NEGATE:attron (BOLD); attron(COLOR_PAIR(3)); addch ('-'); attroff (BOLD); attroff(COLOR_PAIR(3));
       break;
-    case BD_DOUBLE:attron (BOLD); addch ('*'); attroff (BOLD);
+    case BD_DOUBLE:attron (BOLD); attron(COLOR_PAIR(2)); addch ('*'); attroff (BOLD); attroff(COLOR_PAIR(2));
       break;
-    case BD_HEART: attron (BOLD); addch ('$'); attroff (BOLD);
+    case BD_HEART: attron (BOLD); attron(COLOR_PAIR(1)); addch ('$'); attroff (BOLD); attroff(COLOR_PAIR(1));
       break;
     default:
       addch (c);
